@@ -5,6 +5,7 @@ import { CiWallet } from 'react-icons/ci';
 import { QuaternaryButton, TertiaryButton } from '../button';
 import { useEffect, useState } from 'react';
 import { useTokens } from '@/app/api/hooks/useTokens';
+import Image from 'next/image';
 
 export const ProfileCard = ({ publickey }: { publickey: string }) => {
     const session = useSession();
@@ -69,10 +70,10 @@ export const ProfileCard = ({ publickey }: { publickey: string }) => {
                     </div>
                 </div>
                 <div className="flex justify-between">
-                    <TertiaryButton children="Send" onClick={() => { }} />
-                    <TertiaryButton children="Add Funds" onClick={() => { }} />
-                    <TertiaryButton children="Withdraw" onClick={() => { }} />
-                    <TertiaryButton children="Swap" onClick={() => { }} />
+                    <TertiaryButton  onClick={() => { }} >Send</TertiaryButton>
+                    <TertiaryButton  onClick={() => { }} >Add Funds</TertiaryButton>
+                    <TertiaryButton  onClick={() => { }} >Withdraw</TertiaryButton>
+                    <TertiaryButton  onClick={() => { }} >Swap</TertiaryButton>
                 </div>
             </div>
         </div>
@@ -82,7 +83,7 @@ export const ProfileCard = ({ publickey }: { publickey: string }) => {
 function Greeting({ image, name }: { image?: string; name?: string }) {
     return (
         <div className="flex items-center gap-2">
-            <img src={image} alt="profile" className="rounded-full h-12 w-12" />
+           <Image src={image || ""} alt="profile" width={48} height={48} className="rounded-full" />
             <h1 className="text-3xl font-bold">Welcome Back, {name}!</h1>
         </div>
     );
