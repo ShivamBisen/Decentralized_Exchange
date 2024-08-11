@@ -16,12 +16,11 @@ export async function GET(req: NextRequest) {
         const balances = await Promise.all(supportedTokens.map(token => getAccountBalance(token, address)));
         console.log("balances", balances);
 
-        const token =  supportedTokens.map((token, index) => ({
+        const token = supportedTokens.map((token, index) => ({
             ...token,
             balance: balances[index],
-            usdBalance:balances[index]*Number(token.price),
-            
-        }))
+            usdBalance: balances[index] * Number(token.price),
+        }));
 
         return NextResponse.json({
             token,
@@ -35,7 +34,7 @@ export async function GET(req: NextRequest) {
 }
 
 async function getAccountBalance(
-    token: { name: string; mint: string; native: boolean }, 
+    token: { name: string; mint: string; native: boolean },
     address: string
 ): Promise<number> {
     try {

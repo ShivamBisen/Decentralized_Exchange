@@ -83,7 +83,7 @@ export const ProfileCard = ({ publickey }: { publickey: string }) => {
 function Greeting({ image, name }: { image?: string; name?: string }) {
     return (
         <div className="flex items-center gap-2">
-           <Image src={image || ""} alt="profile" width={48} height={48} className="rounded-full" />
+           <img src={image} alt="profile" width={48} height={48} className="rounded-full" />
             <h1 className="text-3xl font-bold">Welcome Back, {name}!</h1>
         </div>
     );
